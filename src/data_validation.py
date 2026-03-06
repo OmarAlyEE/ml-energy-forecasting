@@ -5,11 +5,11 @@ import pandera as pa
 from pandera import Column, DataFrameSchema, Check
 
 # Example schema for hourly energy data
-schema = DataFrameSchema({
-    "timestamp": Column(pa.DateTime),
-    "energy_demand": Column(pa.Float, Check.ge(0)),  # demand cannot be negative
-    "temperature": Column(pa.Float),
-    "humidity": Column(pa.Float),
+schema = pa.DataFrameSchema({
+    "timestamp": pa.Column(str),
+    "energy_demand": pa.Column(float),
+    "temperature": pa.Column(float),
+    "humidity": pa.Column(int),
 })
 
 def validate_data(df: pd.DataFrame):
