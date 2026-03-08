@@ -4,13 +4,13 @@ Fully automated Machine Learning pipeline for forecasting hourly energy consumpt
 
 ---
 
-## 📊 Problem Statement
+## Problem Statement
 
 Predict hourly energy consumption to help energy providers optimize load distribution and detect anomalies in real-time. The pipeline uses voltage and current intensity measurements as input features.
 
 ---
 
-## 🗂 Dataset
+## Dataset
 
 This project uses the [Individual Household Electric Power Consumption Dataset](https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption) from UCI.
 
@@ -20,7 +20,7 @@ This project uses the [Individual Household Electric Power Consumption Dataset](
 
 ---
 
-## 📈 Model Performance
+## Model Performance
 
 After training and evaluation using a Random Forest model:
 
@@ -35,7 +35,7 @@ Results were obtained on the test set (`data/processed/test.csv`).
 
 ---
 
-## 🏗 Architecture
+## Architecture
 Data (raw CSV)
 ↓
 Data Validation (Pandera)
@@ -52,7 +52,7 @@ Monitoring & Drift Detection
 ↓
 Retraining Trigger
 
-## 💻 Tech Stack
+## Tech Stack
 
 - **Python 3.11**  
 - **scikit-learn** (modeling)  
@@ -64,11 +64,10 @@ Retraining Trigger
 
 ---
 
-## ⚙️ How to Run Locally
+## How to Run Locally
 
 Clone the repository:
 
-```bash
 git clone https://github.com/<your-username>/ml-energy-forecasting.git
 cd ml-energy-forecasting
 
@@ -90,25 +89,16 @@ curl -X POST "http://127.0.0.1:8000/predict" \
 CI/CD
 
 GitHub Actions workflow validates the data schema and runs all unit tests on every push.
-
 Any failure in tests or schema validation blocks merging to main.
-
 Ensures professional-grade automation and safeguards against bad data or broken code.
-
 
 Retraining Workflow
 
 New batch data triggers retrain.py.
-
 Data is validated before training.
-
 New model is evaluated against production.
-
 If performance improves (lower RMSE), the model is promoted to production.
-
 Logs are saved in logs/ for transparency.
-
-
 
 Future Improvements
 
@@ -119,7 +109,6 @@ Incorporate automated feature selection or hyperparameter tuning.
 Expand monitoring to detect concept drift using statistical tests (e.g., KS test).
 
 Add time-series specific models (LSTM, XGBoost, Prophet) for better accuracy.
-
 
 Scaling Considerations
 
