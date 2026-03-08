@@ -32,7 +32,7 @@ class InputData(BaseModel):
 # -------------------------
 @app.post("/predict")
 def predict(input_data: InputData):
-    input_dict = input_data.dict()
+    input_dict = input_data.model_dump()
     df = pd.DataFrame([input_dict])
     
     # Make prediction
