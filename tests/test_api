@@ -1,0 +1,11 @@
+from fastapi.testclient import TestClient
+from src.predict import app
+
+client = TestClient(app)
+
+def test_predict_endpoint():
+    response = client.post("/predict", json={"Voltage": 234.0, "Global_intensity": 18.0})
+    assert response.status_code == 200
+    data = response.json()
+    assert "prediction" in data
+    assert isinstance(data["prediction"], float)
