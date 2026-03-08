@@ -86,13 +86,13 @@ curl -X POST "http://127.0.0.1:8000/predict" \
      -d "{\"Voltage\":234.0,\"Global_intensity\":18.0}"
 
 
-CI/CD
+## CI/CD
 
 GitHub Actions workflow validates the data schema and runs all unit tests on every push.
 Any failure in tests or schema validation blocks merging to main.
 Ensures professional-grade automation and safeguards against bad data or broken code.
 
-Retraining Workflow
+## Retraining Workflow
 
 New batch data triggers retrain.py.
 Data is validated before training.
@@ -100,7 +100,7 @@ New model is evaluated against production.
 If performance improves (lower RMSE), the model is promoted to production.
 Logs are saved in logs/ for transparency.
 
-Future Improvements
+## Future Improvements
 
 Add MLflow experiment tracking for detailed model comparisons.
 
@@ -110,7 +110,7 @@ Expand monitoring to detect concept drift using statistical tests (e.g., KS test
 
 Add time-series specific models (LSTM, XGBoost, Prophet) for better accuracy.
 
-Scaling Considerations
+## Scaling Considerations
 
 Docker container can be deployed on cloud services (AWS, GCP, Azure).
 
